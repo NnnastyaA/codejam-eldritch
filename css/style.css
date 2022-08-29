@@ -1,0 +1,89 @@
+body {
+    background: url("../assets/home.png") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ancients-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 33%;
+}
+
+.difficulty-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.game, .deck-with-state {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    min-width: 30%;
+}
+
+.deck-with-state {
+    display: none;
+}
+
+.ancients {
+    width: 200px;
+}
+
+.current-state {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 30%;
+}
+
+.level {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dots {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dot {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
+}
+
+.green {
+    background-color: green;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.level-text {
+    color: white;
+}
+
+.mythic-card-background, .current-card-image {
+    width: 130px;
+}
