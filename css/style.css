@@ -14,11 +14,15 @@ body {
 }
 
 .difficulty-container {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+}
+
+.shuffle-deck {
+    display: none;
 }
 
 .game, .deck-with-state {
@@ -86,4 +90,8 @@ body {
 
 .mythic-card-background, .current-card-image {
     width: 130px;
+}
+
+.active {
+    border: 2px solid red;
 }

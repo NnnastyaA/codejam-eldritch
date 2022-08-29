@@ -7,6 +7,10 @@ const ancients = document.querySelectorAll('.ancients');
 const difficultyLevels = document.querySelectorAll('.difficulty');
 const shuffleDeckBtn = document.querySelector('.shuffle-deck');
 const mythicCardBg = document.querySelector('.mythic-card-background');
+const difficultyContainer = document.querySelector('.difficulty-container');
+const deckWithState = document.querySelector('.deck-with-state');
+const currentCard = document.querySelector('.current-card');
+const levelContainers = document.querySelectorAll('.level');
 
 let selectedAncient;
 let selectedDifficulty;
@@ -23,6 +27,9 @@ function moveNext() {
     let element;
 
     if (firstLevelCards.length !== 0) {
+        levelContainers.forEach(x => x.classList.remove('active'));
+        levelContainers[0].classList.add('active');
+
         element = firstLevelCards.shift();
 
         switch (element.color) {
@@ -38,6 +45,9 @@ function moveNext() {
         }
     }
     else if (secondLevelCards.length !== 0) {
+        levelContainers.forEach(x => x.classList.remove('active'));
+        levelContainers[1].classList.add('active');
+
         element = secondLevelCards.shift();
 
         switch (element.color) {
@@ -53,6 +63,9 @@ function moveNext() {
         }
     }
     else if (thirdLevelCards.length !== 0) {
+        levelContainers.forEach(x => x.classList.remove('active'));
+        levelContainers[2].classList.add('active');
+
         element = thirdLevelCards.shift();
 
         switch (element.color) {
@@ -69,6 +82,7 @@ function moveNext() {
 
         if (thirdLevelCards.length === 0) {
             mythicCardBg.style.display = 'none';
+            levelContainers.forEach(x => x.classList.remove('active'));
         }
     }
 
@@ -78,8 +92,8 @@ function moveNext() {
     img.id = element.id;
     img.className = 'current-card-image';
 
-    document.querySelector('.current-card').innerHTML = '';
-    document.querySelector('.current-card').append(img);
+    currentCard.innerHTML = '';
+    currentCard.append(img);
 }
 
 function renderDeck(ancientObject) {
@@ -96,20 +110,40 @@ function renderDeck(ancientObject) {
     document.querySelectorAll('.dot.blue')[2].innerHTML = ancientObject.thirdStage.blueCards;
 
     shuffleDeckBtn.style.display = 'none';
-    document.querySelector('.deck-with-state').style.display = 'flex';
+    currentCard.innerHTML = '';
+    mythicCardBg.style.display = 'inline';
+    levelContainers.forEach(x => x.classList.remove('active'));
+    deckWithState.style.display = 'flex';
 }
 
 function selectAncient(event) {
+    ancients.forEach(x => x.classList.remove('active'));
+    event.target.classList.add('active');
     selectedAncient = event.target.id;
+    difficultyContainer.style.display = 'flex';
+    deckWithState.style.display = 'none';
+
+    if (selectedDifficulty) {
+        shuffleDeckBtn.style.display = 'inline-block';
+    }
+
     console.log(selectedAncient);
 }
 
 function selectDifficulty(event) {
+    difficultyLevels.forEach(x => x.classList.remove('active'));
+    event.target.classList.add('active');
     selectedDifficulty = event.target.id;
+    deckWithState.style.display = 'none';
+    shuffleDeckBtn.style.display = 'inline-block';
     console.log(selectedDifficulty);
 }
 
 function shuffleDeck() {
+    firstLevelCards = [];
+    secondLevelCards = [];
+    thirdLevelCards = [];
+
     const ancientObject = ancientsData.find(x => x.id === selectedAncient);
     const blueCardsCount = ancientObject.firstStage.blueCards + ancientObject.secondStage.blueCards + ancientObject.thirdStage.blueCards;
     const brownCardsCount = ancientObject.firstStage.brownCards + ancientObject.secondStage.brownCards + ancientObject.thirdStage.brownCards;
