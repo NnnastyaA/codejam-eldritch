@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ancients-container">
+        <img src="./assets/Ancients/Azathoth.png" alt="azathoth" id="azathoth" class="ancients">
+        <img src="./assets/Ancients/IogSothoth.png" alt="iogSothoth" id="iogSothoth" class="ancients">
+        <img src="./assets/Ancients/Cthulthu.png" alt="cthulthu" id="cthulhu" class="ancients">
+        <img src="./assets/Ancients/ShubNiggurath.png" alt="shubNiggurath" id="shubNiggurath" class="ancients">
+    </div>
+    <div class="difficulty-container">
+        <input type="button" value="Очень низкая" class="difficulty" id="very-easy">
+        <input type="button" value="Низкая" class="difficulty" id="easy">
+        <input type="button" value="Средняя" class="difficulty" id="medium">
+        <input type="button" value="Высокая" class="difficulty" id="hard">
+        <input type="button" value="Очень высокая" class="difficulty" id="very-hard">
+    </div>
+    <div class="game">
+        <input type="button" value="Замешать колоду" class="shuffle-deck">
+        <div class="deck-with-state">
+            <div class="current-state">
+                <div class="level">
+                    <span class="level-text">Этап 1</span>
+                    <div class="dots">
+                        <div class="dot green"></div>
+                        <div class="dot brown"></div>
+                        <div class="dot blue"></div>
+                    </div>
+                </div>
+                <div class="level">
+                    <span class="level-text">Этап 2</span>
+                    <div class="dots">
+                        <div class="dot green"></div>
+                        <div class="dot brown"></div>
+                        <div class="dot blue"></div>
+                    </div>
+                </div>
+                <div class="level">
+                    <span class="level-text">Этап 3</span>
+                    <div class="dots">
+                        <div class="dot green"></div>
+                        <div class="dot brown"></div>
+                        <div class="dot blue"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="deck">
+                <img src="./assets/mythicCardBackground.png" alt="mythicCardBackground" class="mythic-card-background">
+            </div>
+            <div class="current-card">
+            </div>
+        </div>
+    </div>
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>
